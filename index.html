@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page with Header and Background</title>
+  <style>
+    /* Ensure html and body take full height */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* Set the background image and make it cover the whole viewport */
+    body {
+      background-image: url('https://images.pexels.com/photos/6192015/pexels-photo-6192015.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Style for the page header */
+    header {
+      background-color: rgba(87, 38, 38, 0.5); /* semi-transparent background */
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(244, 133, 133, 0.3);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Optional: make the page content take up full height */
+    main {
+      flex: 1;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    AFRICAN CULTURE TOPIC!
+  </header>
+  <main>
+    <h2>Welcome to African Culture</h2>
+    <p>Discover the diverse traditions, music, dance, fashion, and festivals that define African heritage.</p>
+  </main>
+</body>
+</html>
