@@ -1,0 +1,85 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="culture.html">Culture</a></li>
+      <li><a href="food.html">Food</a></li>
+      <li><a href="fashion.html">Fashion</a></li>
+      <li><a href="music.html">Music&Art</a></li>
+      <li><a href="places.html">Places to visit</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <div class="social-links">
+  <a href="https://www.instagram.com/africa.culture" target="_blank">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+  <a href="https://www.twitter.com/africa.culture" target="_blank">
+    <i class="fab fa-twitter"></i> Twitter
+  </a>
+  <a href="https://www.facebook.com/africa.culture" target="_blank">
+    <i class="fab fa-facebook"></i> Facebook
+  </a>
+</div>
+
+  <section class="frame">
+    <h1>Contact Us</h1>
+    <form action="submit.php" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required><br>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" required><br>
+
+      <label for="message">Message:</label>
+      <textarea name="message" required></textarea><br>
+
+      <input type="submit" value="Send Message">
+    </form>
+
+  </section>
+  <section class="frame">
+    <h2>Reach Out Anytime</h2>
+    <p>We love hearing from you! Whether for partnerships, questions, or ideas.</p>
+    <img src="contact1.webp" alt="Contact illustration">
+  </section>
+  <script>
+    document.getElementById('contactForm').onsubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      if (!email.includes('@')) {
+        alert("Enter a valid email address.");
+        return;
+      }
+
+      alert("Form submitted successfully!");
+      fetch('http://localhost:3000/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ name, email, message })
+      }).then(res => res.json()).then(data => {
+        console.log(data);
+      });
+    };
+  </script>
+</body>
+</html>
